@@ -253,9 +253,7 @@ void loadMedia()
 	Mix_PlayMusic(gMusic, -1);
 }
 
-void
-
-Play()
+void Play()
 {
 
 	int
@@ -303,7 +301,21 @@ Play()
 	while (!ThoatGame)
 
 	{
+/*
+A clear background is rendered using "SDL_SetRenderDrawColor(render, 0xFF, 0xFF, 0xFF, 0xFF);" and "SDL_RenderClear(render)".
 
+The background image is split into two parts to create a seamless scrolling effect. These two parts are rendered on the screen using "AnhNenPlay.Render(render, 0, 0, &rect_data_1);" and "AnhNenPlay.Render(render, 1000 - ThanhCuon, 0, &rect_data_2);"
+
+A scrolling effect is achieved by continuously incrementing the variable "ThanhCuon" by 5 in "if (DungLai == false)" and once the variable reaches 1000, it is reset to 0.
+
+The score is displayed using "if ((DiemSo / 15) % 100 == 0 && (DiemSo / 15) != 0 && DiemSo % 15 == 0)" This code checks if the score is divisible by 15, has passed certain multiples of 100, and has not been displayed previously.
+
+If these conditions are met, the function loads the font and sets the color of the score text, "std::string text = "Score: " + convertItoStr(DiemSo / 15);" is used to convert the score to a string, and "DiemSoText.loadText" is called to create a text texture with larger letters.
+
+The score is then rendered on the screen using "DiemSoText.Render(render, 0, 40, NULL);" which displays the score in white at the top of the screen with larger letters.
+
+If the condition in step 4 is not met, a smaller score text is displayed using the same process as in step 5, but with a smaller font size.		
+*/
 		// Scrolling map
 		SDL_SetRenderDrawColor(render, 0xFF, 0xFF, 0xFF, 0xFF);
 
